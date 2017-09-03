@@ -19,11 +19,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Button createDataBase, add, update,addProvider,queryProvider,readContract,test;
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         createDataBase = (Button) findViewById(R.id.createDataBase);
         add = (Button) findViewById(R.id.add);
@@ -151,9 +151,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("数据库动态", "username=" + username + " password="+password);
                 }*/
                 //2.查一行记录
-                String path = "content://com.hzyc.yy.demo_08.MyContentProvider/userinfo/2";
+                String path = "content://com.hzyc.yy.demo_08.MyContentProvider/userinfo";
                 Uri uri = Uri.parse(path);
-                Cursor cursor = cr.query(uri,new String []{"username","password"},null,new String[]{"2"},null);
+                Cursor cursor = cr.query(uri,new String []{"username","password"},null,null,null);
                 while(cursor.moveToNext()){
                     String username = cursor.getString(cursor.getColumnIndex("username"));
                     String password = cursor.getString(cursor.getColumnIndex("password"));
@@ -175,13 +175,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        test.setOnTouchListener(new View.OnTouchListener() {
+       /* test.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.i("触碰信息","坐标="+event.getX()+"rawX"+event.getRawX());
                 Log.i("触碰信息","坐标="+event.getY()+"rawY"+event.getRawY());
                 return true;
             }
-        });
+        });*/
     }
 }

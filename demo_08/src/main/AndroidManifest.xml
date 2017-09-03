@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+       <permission android:name="hzyc.READDEMO08"
+        android:label="request demo08 data"
+        android:protectionLevel="normal">
+    </permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +27,9 @@
 
         <provider
             android:name=".MyContentProvider"
-            android:authorities="com.hzyc.yy.demo_08.MyContentProvider" />
+            android:authorities="com.hzyc.yy.demo_08.MyContentProvider"
+            android:exported="true"
+            android:permission="hzyc.READDEMO08"/>
 
         <activity android:name=".WActivity">
 
